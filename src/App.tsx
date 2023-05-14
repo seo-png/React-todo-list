@@ -1,29 +1,19 @@
 import React from 'react';
-import { atom, selector, useRecoilValue } from 'recoil'
-import axios from 'axios';
+import { RecoilRoot } from 'recoil';
+import Calendar from './components/Calendar';
 
-const todoIdState = atom({
-  key: 'todoIdState',
-  default: 1
-})
 
-const todoItemQuery = selector({
-  key: 'todoItemQuery',
-  get: async ({ get }) => {
-    const id = get(todoIdState);
-
-    const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`);
-
-    return response.data;
-  }
-})
 function App() {
-  const data = useRecoilValue(todoItemQuery)
+ 
   return (
-    <div>
-      {data.title}
-    </div>
+    <RecoilRoot>
+      <Calendar isOpen={true} onClose={function (): void {
+        throw new Error('Function not implemented.');
+      } } children={undefined} />
+    </RecoilRoot>
+    
   );
 }
+
 
 export default App;
