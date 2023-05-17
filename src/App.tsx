@@ -7,10 +7,10 @@ function App() {
  
   return (
     <RecoilRoot>
-      <Calendar isOpen={true} onClose={function (): void {
+      <Calendar isOpen={false} onClose={function (): void {
         throw new Error('Function not implemented.');
       } } children={undefined} />
-      test
+      
     </RecoilRoot>
     
   );
